@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illluminate\Database\Eloquent\Factories\HasFactory;
+use Illluminate\Database\Eloquent\Model;
 
 class Vehiculo extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'descripcion',
-        'categoria',
+        'description',
+        'categoriia',
     ];
 }
