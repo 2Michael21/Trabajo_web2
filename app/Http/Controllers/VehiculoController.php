@@ -21,7 +21,7 @@ class VehiculoController extends Controller
             'categoria' => 'required|string',
         ]);
 
-        $vehiculos = Vehiculo::create($request->all());
+        $vehiculo = Vehiculo::create($request->all());
         return response()->json([
             'message' => 'Vehículo creado con éxito.',
             'data' => $vehiculo
