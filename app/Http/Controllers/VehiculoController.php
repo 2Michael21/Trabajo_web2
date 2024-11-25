@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehiculos;
+use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
-class VehiculosController extends Controller
+class VehiculoController extends Controller
 {
     // Mostrar todos los vehículos
     public function index()
     {
-        return response()->json(Vehiculos::all(), 200);
+        return response()->json(Vehiculo::all(), 200);
     }
 
     // Guardar un nuevo vehículo
@@ -21,31 +21,31 @@ class VehiculosController extends Controller
             'categoria' => 'required|string',
         ]);
 
-        $vehiculos = Vehiculos::create($request->all());
+        $vehiculos = Vehiculo::create($request->all());
         return response()->json([
             'message' => 'Vehículo creado con éxito.',
-            'data' => $vehiculos
+            'data' => $vehiculo
         ], 201);
     }
 
     // Mostrar un vehículo específico
     public function show($id)
     {
-        $vehiculos = Vehiculos::find($id);
+        $vehiculos = Vehiculo::find($id);
 
-        if (!$vehiculos) {
+        if (!$vehiculo) {
             return response()->json(['message' => 'Vehículo no encontrado.'], 404);
         }
 
-        return response()->json($vehiculos, 200);
+        return response()->json($vehiculo, 200);
     }
 
     // Actualizar un vehículo
     public function update(Request $request, $id)
     {
-        $vehiculos = Vehiculos::find($id);
+        $vehiculos = Vehiculo::find($id);
 
-        if (!$vehiculos) {
+        if (!$vehiculo) {
             return response()->json(['message' => 'Vehículo no encontrado.'], 404);
         }
 
@@ -54,23 +54,23 @@ class VehiculosController extends Controller
             'categoria' => 'required|string',
         ]);
 
-        $vehiculos->update($request->all());
+        $vehiculo->update($request->all());
         return response()->json([
             'message' => 'Vehículo actualizado con éxito.',
-            'data' => $vehiculos
+            'data' => $vehiculo
         ], 200);
     }
 
     // Eliminar un vehículo
     public function destroy($id)
     {
-        $vehiculos = Vehiculos::find($id);
+        $vehiculos = Vehiculo::find($id);
 
-        if (!$vehiculos) {
+        if (!$vehiculo) {
             return response()->json(['message' => 'Vehículo no encontrado.'], 404);
         }
 
-        $vehiculos->delete();
+        $vehiculo->delete();
         return response()->json(['message' => 'Vehículo eliminado con éxito.'], 200);
     }
 }
