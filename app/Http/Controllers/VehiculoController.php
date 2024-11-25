@@ -64,7 +64,7 @@ class VehiculoController extends Controller
     // Eliminar un vehículo
     public function destroy($id)
     {
-        $vehiculos = Vehiculo::find($id);
+        $vehiculo = Vehiculo::find($id);
 
         if (!$vehiculo) {
             return response()->json(['message' => 'Vehículo no encontrado.'], 404);
